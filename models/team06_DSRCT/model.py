@@ -621,7 +621,7 @@ class Upsample(nn.Sequential):
 
 
 @ARCH_REGISTRY.register()
-class DRCT(nn.Module):
+class DSRCT(nn.Module):
 
     def __init__(self,
                  img_size=64,

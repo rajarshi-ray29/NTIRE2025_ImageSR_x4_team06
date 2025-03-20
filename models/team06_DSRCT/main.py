@@ -3,7 +3,7 @@ import torch
 import cv2
 import numpy as np
 import glob
-from .model import DRCT
+from .model import DSRCT
 
 def main(model_dir, input_path, output_path, device):
     # Configuration (match your inference.py parameters)
@@ -13,7 +13,7 @@ def main(model_dir, input_path, output_path, device):
     tile_overlap = 32 # Default overlap
 
     # Initialize model
-    model = DRCT(upscale=scale, in_chans=3, img_size=64, window_size=window_size,
+    model = DSRCT(upscale=scale, in_chans=3, img_size=64, window_size=window_size,
                 compress_ratio=3, squeeze_factor=30, conv_scale=0.01,
                 overlap_ratio=0.5, img_range=1., depths=[6]*12,
                 embed_dim=180, num_heads=[6]*12, gc=32, mlp_ratio=2,
