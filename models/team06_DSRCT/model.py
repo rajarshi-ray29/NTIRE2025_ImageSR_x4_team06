@@ -766,8 +766,19 @@ class DRCT(nn.Module):
             x = x + self.absolute_pos_embed
         x = self.pos_drop(x)
 
-        for layer in self.layers:
-            x = layer(x, x_size)
+        # for layer in self.layers:
+        #     x = layer(x, x_size)
+        # Process RDG blocks in pairs with multiplicative skip connections
+        num_layers = len(self.layers)
+        i = 0
+        while i < num_layers:
+            skip = x  # Save the input before the pair of RDG blocks
+            x = self.layers[i](x, x_size)
+            if i + 1 < num_layers:
+                x = self.layers[i + 1](x, x_size)
+                # NEW: Instead of using addition, we combine the skip and output via multiplication
+                x = skip + x  
+            i += 2
 
         x = self.norm(x)  # b seq_len c
         x = self.patch_unembed(x, x_size)
@@ -781,7 +792,7 @@ class DRCT(nn.Module):
         if self.upsampler == 'pixelshuffle':
             # for classical SR
             x = self.conv_first(x)
-            x = self.conv_after_body(self.forward_features(x)) * x
+            x = self.conv_after_body(self.forward_features(x)) + x
             x = self.conv_before_upsample(x)
             x = self.conv_last(self.upsample(x))
 
