@@ -8,7 +8,7 @@
     CUDA_VISIBLE_DEVICES=0 python test.py --valid_dir [path to val data dir] --test_dir [path to test data dir] --save_dir [path to your save dir] --model_id 6
     ```
     - You can use either `--valid_dir`, or `--test_dir`, or both of them. Be sure the change the directories `--valid_dir`/`--test_dir` and `--save_dir`.
-    - We provide a baseline (team00): DAT (default). Switch models (default is DAT) through commenting the code in [test.py](./test.py#L19).
+    - We provide our model (team06): DSRCT. Switch models (default is DAT) through commenting the code in [test.py](./test.py#L19).
 
 ## How to add your model to this baseline?
 
