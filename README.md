@@ -2,7 +2,7 @@
 
 ## How to test the baseline model?
 
-1. `git clone https://github.com/zhengchen1999/NTIRE2025_ImageSR_x4.git`
+1. `git clone https://github.com/rajarshi-ray29/NTIRE2025_ImageSR_x4_team06.git`
 2. Select the model you would like to test:
     ```bash
     CUDA_VISIBLE_DEVICES=0 python test.py --valid_dir [path to val data dir] --test_dir [path to test data dir] --save_dir [path to your save dir] --model_id 6
