@@ -621,7 +621,7 @@ class Upsample(nn.Sequential):
 
 
 @ARCH_REGISTRY.register()
-class DSRCT(nn.Module):
+class MDRCT(nn.Module):
 
     def __init__(self,
                  img_size=64,
@@ -651,7 +651,7 @@ class DSRCT(nn.Module):
                  resi_connection='1conv',
                  gc = 32,
                  **kwargs):
-        super(DSRCT, self).__init__()
+        super(MDRCT, self).__init__()
 
         self.window_size = window_size
         self.shift_size = window_size // 2

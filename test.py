@@ -23,10 +23,10 @@ def select_model(args, device):
         model_func = DAT
     elif model_id == 6:
         # DSRCT
-        from models.team06_DSRCT.main import main as DSRCT
+        from models.team06_MDRCT.main import main as MDRCT
         name = f"{model_id:06}_DSRCT"
-        model_path = os.path.join('model_zoo', 'team06_DSRCT')
-        model_func = DSRCT
+        model_path = os.path.join('model_zoo', 'team06_MDRCT')
+        model_func = MDRCT
     else:
         raise NotImplementedError(f"Model {model_id} is not implemented.")
 
