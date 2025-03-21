@@ -651,7 +651,7 @@ class DSRCT(nn.Module):
                  resi_connection='1conv',
                  gc = 32,
                  **kwargs):
-        super(DRCT, self).__init__()
+        super(DSRCT, self).__init__()
 
         self.window_size = window_size
         self.shift_size = window_size // 2
